@@ -13,8 +13,53 @@
 For each different ways of creating object write different solutions.
 
 - Prototypal pattern of object creation (Put methods inside an object and create object using Object.create)
+```js
+let methods = {
+    isAnswerCorrect: (answer) => {
+        if(answer === this.correctAnswerIndex) return true;
+        return false;
+    },
+    getCorrectAnswer: () => {
+        return  this.options[this.correctAnswerIndex];
+    },
+}
+function Question(title, options, correctAnswerIndex) {
+    let obj = Object.create(methods);
+    obj.title = title;
+    obj.options = options;
+    obj.correctAnswerIndex = correctAnswerIndex;
+    return obj;
+}
+```
 - Pseudoclassical Pattern (Put methods inside F.prototype and use `new` to call function)
+```js
+function Question(title, options, correctAnswerIndex) {
+    this.title = title;
+    this.options = options;
+    this.correctAnswerIndex = correctAnswerIndex;
+}
+
+Question.prototype = {
+    isAnswerCorrect: (answer) => {
+        if(answer === this.correctAnswerIndex) return true;
+        return false;
+    },
+    getCorrectAnswer: () => {
+        return  this.options[this.correctAnswerIndex];
+    },
+}
+
+let firstQuestion = new Question(
+    'Where is the capital of Jordan',
+    ['Tashkent', 'Amaan', 'Kuwait City', 'Nairobi'],
+    1
+);
+
+```
 - Create using class
+```js
+
+```
 - Write test by creating two objects also test both methods.
 
 ### To test use the following data
