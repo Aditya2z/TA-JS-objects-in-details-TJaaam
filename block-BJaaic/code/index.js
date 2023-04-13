@@ -1,69 +1,81 @@
-let animal = {
-    location: location,
-    noOfLegs: legs,
-    __proto__: {
-        eat: () => {
-            console.log(`I live in ${location} and I can eat`);
-        },
-        changeLocation: (newLocation) => {
-            location = newLocation;
-        },
-        summary: () => {
-            console.log(`I live in ${location} and I have ${numberOfLegs}`);
-        },
-    }
+let animalMethods = {
+    eat: () => {
+        console.log(`I live in ${this.location} and I can eat`);
+    },
+    changeLocation: (newLocation) => {
+        this.location = newLocation;
+    },
+    summary: () => {
+        console.log(`I live in ${this.location} and I have ${this.noOfLegs}`);
+    },
 }
 
-let dog = {
-    location: location,
-    noOfLegs: legs,
-    name: name,
-    color: color,
-    __proto__: {
-        eat: () => {
-            console.log(`I live in ${location} and I can eat`);
-        },
-        changeLocation: (newLocation) => {
-            location = newLocation;
-        },
-        summary: () => {
-            console.log(`I am ${name} and I am of ${color} color. I can also bark`);
-        },
-        bark: () => {
-            console.log(`I am ${name} and I can bark 🐶`);
-        },
-        changeName: (newName) => {
-            name = newName;
-        },
-        changeColor: (newColor) => {
-            color = newColor;
-        },
-    }
+function createAnimal(location, numberOfLegs) {
+    let obj = Object.create(animalMethods);
+    obj.location = location;
+    obj.noOfLegs = numberOfLegs;
+    return obj;
+};
+
+let dogMethods = {
+    eat: () => {
+        console.log(`I live in ${this.location} and I can eat`);
+    },
+    changeLocation: (newLocation) => {
+        this.location = newLocation;
+    },
+    summary: () => {
+        console.log(`I am ${this.name} and I am of ${this.color} color. I can also bark`);
+    },
+    bark: () => {
+        console.log(`I am ${this.name} and I can bark 🐶`);
+    },
+    changeName: (newName) => {
+        this.name = newName;
+    },
+    changeColor: (newColor) => {
+        this.color = newColor;
+    },
+};
+Object.setPrototypeOf(dogMethods, animalMethods); // For second proto to be animal methods
+
+function createDog(location, numberOfLegs, name, color) {
+    let obj = createAnimal(location, numberOfLegs);
+    Object.setPrototypeOf(obj, dogMethods); // for dogMethod to overshadow animalMethod
+    obj.location= location;
+    obj.noOfLegs= numberOfLegs;
+    obj.name= name;
+    obj.color= color;
 }
 
-let cat = {
-    location: location,
-    noOfLegs: legs,
-    name: name,
-    colorOFEyes: colorOFEyes,
-    __proto__: {
-        eat: () => {
-            console.log(`I live in ${location} and I can eat`);
-        },
-        changeLocation: (newLocation) => {
-            location = newLocation;
-        },
-        summary: () => {
-            console.log(`I am ${name} and the color of my eyes are ${colorOfEyes}. I can also do meow meow`);
-        },
-        meow: () => {
-            console.log(`I am ${name} and I can meow 🐶`);
-        },
-        changeName: (newName) => {
-            name = newName;
-        },
-        changeColorOfEyes: (newColorOfEyes) => {
-            colorOFEyes = newColorOfEyes;
-        },
-    }
+let catMethods = {
+    eat: () => {
+        console.log(`I live in ${this.location} and I can eat`);
+    },
+    changeLocation: (newLocation) => {
+        this.location = newLocation;
+    },
+    summary: () => {
+        console.log(`I am ${this.name} and the color of my eyes are ${this.colorOfEyes}. I can also do meow meow`);
+    },
+    meow: () => {
+        console.log(`I am ${this.name} and I can meow 🐶`);
+    },
+    changeName: (newName) => {
+        this.name = newName;
+    },
+    changeColorOfEyes: (newColorOfEyes) => {
+        this.colorOFEyes = newColorOfEyes;
+    },
+}
+
+Object.setPrototypeOf(catMethods, animalMethods); // For second proto to be animal methods
+
+function createDog(location, numberOfLegs, name, colorOfEyes) {
+    let obj = createAnimal(location, numberOfLegs);
+    Object.setPrototypeOf(obj, catMethods); // for dogMethod to overshadow animalMethod
+    obj.location= location;
+    obj.noOfLegs= numberOfLegs;
+    obj.name= name;
+    obj.colorOfEyes= color;
 }
