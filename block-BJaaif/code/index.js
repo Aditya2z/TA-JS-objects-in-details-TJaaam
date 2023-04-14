@@ -67,11 +67,12 @@ personStore.introduce = () => {
 
 function PersonConstructor() {
   // add code here
-}
-PersonConstructor.prototype = {
-  greet: function () {
+  this.greet = function () {
     console.log(`Hello`);
-  }
+  },
+  this.introduce = () => {
+    console.log(`Hi my name is ${this.name}`)
+  },
 }
 
 
@@ -83,9 +84,10 @@ var simon = new PersonConstructor();
 
 function personFromConstructor(name, age) {
   // add code here
-  this.name = name;
-  this.age = age;
-  return this;
+  let obj = new PersonConstructor();
+  obj.name = name;
+  obj.age = age;
+  return obj;
 }
 
 var mike = personFromConstructor('Mike', 30);
@@ -97,14 +99,6 @@ var mike = personFromConstructor('Mike', 30);
 
 /*** CHALLENGE 3 of 3 ***/
 // add code here
-PersonConstructor.prototype = {
-  greet: function () {
-    console.log(`Hello`);
-  },
-  introduce: () => {
-    console.log(`Hi my name is ${this.name}`)
-  },
-}
 
 // mike.introduce(); // -> Logs 'Hi, my name is Mike'
 
@@ -168,13 +162,15 @@ var adminFunctionStore = Object.create(userFunctionStore); /* Put code here */
 function adminFactory(name, score) {
   // Put code here
   let obj = userFactory(name, score);
+  Object.setPrototypeOf(obj, adminFunctionStore);
   obj.type = "Admin";
   return obj;
 }
 
-Object.setPrototypeOf(adminFactory, userFactory);
-
 /* Put code here for a method called sharePublicMessage*/
+adminFunctionStore.sharePublicMessage = function() {
+  console.log(`Welcome User`);
+}
 
 var adminFromFactory = adminFactory('Eva', 5);
 
