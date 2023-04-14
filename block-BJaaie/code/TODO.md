@@ -25,7 +25,7 @@ CreateAnimal.prototype = {
 }
 
 function CreateDog(location, numberOfLegs, name, color) {
-    CreateAnimal.call(this);
+    CreateAnimal.call(this, location, numberOFLegs);
     this.name= name;
     this.color= color;
     return this;
@@ -53,7 +53,7 @@ CreateDog.prototype = {
 };
 
 function CreateCat(location, numberOfLegs, name, colorOfEyes) {
-    CreateAnimal.call(this);
+    CreateAnimal.call(this, location, numberOfLegs);
     this.name= name;
     this.colorOfEyes= color;
     return this;
