@@ -51,6 +51,7 @@ CreateDog.prototype = {
         this.color = newColor;
     },
 };
+Object.setPrototypeOf(CreateDog.prototype, CreateAnimal.prototype);
 
 function CreateCat(location, numberOfLegs, name, colorOfEyes) {
     CreateAnimal.call(this, location, numberOfLegs);
@@ -79,6 +80,8 @@ CreateCat.prototype = {
         this.colorOFEyes = newColorOfEyes;
     },
 }
+
+Object.setPrototypeOf(CreateCat.prototype, CreateAnimal.prototype);
 ```
 
 - Class Pattern
