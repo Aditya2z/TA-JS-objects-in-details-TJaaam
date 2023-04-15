@@ -79,7 +79,7 @@ class Queue {
         this.queue[this.queue.length] = value;
     }
     dequeue() {
-        this.splice([this.queue.length - 1], 1);
+        this.splice(0, 1);
     }
     peek(optional) {
         if(optional) return this.queue[optional];
