@@ -1,5 +1,5 @@
 class Book {
-    constructor(title, category, author, isRead = false, finishedDate) {
+    constructor(title, category, author, isRead = false, finishedDate = null) {
         this.title = title;
         this.category = category;
         this.author = author;
@@ -36,11 +36,11 @@ class Booklist {
     }
 }
 
-let book1 = new Book("A", "thriller", "me", false, Date.now());
-let book2 = new Book("Ab", "horror", "you", false, Date.now());
-let book3 = new Book("Abc", "thriller", "everyone", false, Date.now());
-let book4 = new Book("Abcd", "romance", "noone", false, Date.now());
-let book5 = new Book("Abcde", "sci-fi", "someone", false, Date.now());
+let book1 = new Book("A", "thriller", "me", false);
+let book2 = new Book("Ab", "horror", "you", false);
+let book3 = new Book("Abc", "thriller", "everyone", false);
+let book4 = new Book("Abcd", "romance", "noone", false);
+let book5 = new Book("Abcde", "sci-fi", "someone", false);
 
 let booklist1 = new Booklist();
 
