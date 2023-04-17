@@ -1,0 +1,209 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* Custom Styling Starts Here */
+
+/* My Resets */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+
+/* General Styles */
+html {
+    font-size: 16px;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    max-width: 1370px;
+    width: 100%;
+    line-height: 1.5;
+}
+button,
+input,
+select,
+textarea {
+    font-family: 'Inter', sans-serif;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+    padding: 0;
+    font-weight: 600;
+}
+img,
+audio,
+video {
+    width: 100%;
+}
+
+/* Variables */
+:root {
+    --primary:  #008CBA;
+    --secondary: #F2F2F2;
+}
+
+/* Containers */
+.container-95{
+    max-width: 95%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Flex */
+.flex {
+    display: flex;
+}
+.flex-column {
+    flex-direction: column;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.justify-center {
+    justify-content: center;
+}
+.align-center {
+    align-items: center;
+}
+.wrap {
+    flex-wrap: wrap;
+}
+.flex-24 {
+    flex: 0 1 24%;
+}
+.flex-32 {
+    flex: 0 1 32%;
+}
+.flex-49 {
+    flex: 0 1 49%;
+}
+
+/* Headings */
+h1 {
+    font-size: 2rem;
+    font-weight: 800;
+}
+h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+/* Texts */
+.text {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+/* Buttons */
+.btn {
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: .5rem 2rem;
+    border-radius: .25rem;
+}
+.closeBtn {
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: tomato;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Main styles */
+legend {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 300;
+}
+.accent {
+    color: var(--primary);
+}
+input {
+    width: 100%;
+    margin-top: .5rem;
+    margin-bottom: 2rem;
+    padding: .5rem 1rem;
+    border: 1px solid gray;
+}
+table {
+    width: 100%;
+}
+th {
+    font-weight: 600;
+}
+th, td {
+    width: 25%;
+    text-align: left;
+    border-bottom: 1px solid gray;
+    border-top: 1px solid gray;
+    padding: .5rem 0;
+}
+tr:nth-child(even) {
+    background-color: var(--secondary);
+}
+.title {
+    width: 35%;
+}
