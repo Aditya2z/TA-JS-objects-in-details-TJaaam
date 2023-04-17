@@ -60,8 +60,9 @@ class Book {
 
 let booklist1 = new Booklist(document.querySelector(".root"));
 
-addBtn.addEventListener("keyup", (event) => {
-    if(event.keyCode === 13 && inputs[0].value !== "" &&
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if(inputs[0].value !== "" &&
     inputs[1].value !== ""&&
     inputs[2].value !== "") {
         booklist1.addBook(inputs[0].value, inputs[1].value, inputs[2].value);
@@ -69,8 +70,4 @@ addBtn.addEventListener("keyup", (event) => {
         inputs[1].value = "";
         inputs[2].value = "";
     }
-} )
-
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
 })
