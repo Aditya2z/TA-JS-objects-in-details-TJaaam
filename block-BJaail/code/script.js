@@ -14,6 +14,7 @@ class Booklist {
         return this.list.length;
     }
     deleteBook(id) {
+        console.log(id, "check");
         let index = this.list.findIndex(book => book.id === id);
         this.list.splice(index,1);
         this.createUI();
@@ -26,12 +27,14 @@ class Booklist {
                                     <th>Author</th>
                                     <th>ISBN#</th>
                                     <th></th>
-                                </tr>
-        `;
+                                </tr>   
+                            `;
         this.list.forEach(book => {
             let row = book.createUI();
             let closeBtn = row.querySelector(".closeBtn");
-            closeBtn.addEventListener("click", this.deleteBook.bind(this, book.id));
+            closeBtn.addEventListener("click", () => {
+                this.deleteBook(book.id);
+            });
             this.root.append(row);
         })
     }
