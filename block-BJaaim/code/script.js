@@ -77,7 +77,7 @@ form.addEventListener("submit", (event) => {
 event.preventDefault();
 handleSubmit();
 });
-
+//
 function handleSubmit() {
 let answer = document.querySelector('input[name="answerOption"]:checked');
 if (!answer) {
